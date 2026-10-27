@@ -218,6 +218,9 @@ CURLcode Curl_rand_alnum(struct Curl_easy *data, unsigned char *rnd,
   unsigned int r;
   DEBUGASSERT(num > 1);
 
+  if(!rnd || (num < 2))
+    return CURLE_BAD_FUNCTION_ARGUMENT;
+
   num--; /* save one for null-termination */
 
   while(num) {

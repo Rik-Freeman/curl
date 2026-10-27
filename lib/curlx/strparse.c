@@ -317,6 +317,7 @@ void curlx_str_trimblanks(struct Curl_str *out)
 /* increase the pointer until it has moved over all blanks */
 void curlx_str_passblanks(const char **linep)
 {
-  while(ISBLANK(**linep))
+  DEBUGASSERT(linep && *linep);
+  while(linep && *linep && ISBLANK(**linep))
     (*linep)++; /* move over it */
 }

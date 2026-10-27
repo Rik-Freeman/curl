@@ -1254,7 +1254,7 @@ static bool str_has_ctrl(const char *input)
   if(input) {
     const unsigned char *str = (const unsigned char *)input;
     while(*str) {
-      if(*str < 0x20)
+      if((*str < 0x20) || (*str == 0x7f))
         return TRUE;
       str++;
     }
